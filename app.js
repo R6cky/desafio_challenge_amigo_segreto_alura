@@ -7,12 +7,13 @@ const newTagLi = document.createElement("li");
 const result = document.querySelector(".result-list");
 
 function adicionarAmigo() {
-  const buttonHtml = document.querySelector(".button-add");
   if (inputName.value.length == 0) {
     alert("Por favor, insira um nome válido.");
+    return;
   }
 
   listaDeAmigos.push(inputName.value);
+  inputName.value = "";
   ulHtml.innerHTML = "";
   listaDeAmigos.forEach((elem) => {
     const newTagLi = document.createElement("li");
@@ -22,6 +23,10 @@ function adicionarAmigo() {
 }
 
 function sortearAmigo() {
+  if (listaDeAmigos.length == 0) {
+    alert("Não é possível realizar o sorteio. A lista de amigos está vazia.");
+    return;
+  }
   const indexOfArray = Math.floor(Math.random() * listaDeAmigos.length);
   result.innerHTML = `O amigo secreto sorteado é: ${listaDeAmigos[indexOfArray]}`;
 }
