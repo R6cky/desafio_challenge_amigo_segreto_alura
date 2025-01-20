@@ -4,6 +4,7 @@ const listaDeAmigos = [];
 const inputName = document.querySelector(".input-name");
 const ulHtml = document.querySelector(".name-list");
 const newTagLi = document.createElement("li");
+const result = document.querySelector(".result-list");
 
 function adicionarAmigo() {
   const buttonHtml = document.querySelector(".button-add");
@@ -20,4 +21,7 @@ function adicionarAmigo() {
   });
 }
 
-function sortearAmigo() {}
+function sortearAmigo() {
+  const indexOfArray = Math.floor(Math.random() * listaDeAmigos.length);
+  result.innerHTML = `O amigo secreto sorteado é: ${listaDeAmigos[indexOfArray]}`;
+}
